@@ -6,7 +6,7 @@ Create Your Own PHP Admin Panel
 # Upload clone respository at home path of php server 
 
 # Now you are able to access custom php-admin-panel using 
-http://<yourdomain>:<port>/admin/
+http://yourdomainname/admin/
   
   
 
