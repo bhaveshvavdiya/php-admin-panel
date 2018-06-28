@@ -1,5 +1,5 @@
-
 <?php
+    session_start();
 
     if(isset($_SESSION["username"]) && $_SESSION["username"]!=null && $_SESSION["username"]!=''){
       header('Location: home.php'); 
@@ -12,9 +12,10 @@
       try{
         if($username == 'username' && $password == 'password' )
         {
-            session_start();
-            $_SESSION["username"] = "username";
-            header("Location: home.php");
+            
+            $_SESSION["username"] = $username;
+            header("location:./home.php");
+            exit();
         }else{
           $error_msg = "Invalid username / password";
         }
