@@ -1,14 +1,31 @@
-
 <?php
 
   session_start();
     if(!isset($_SESSION["username"]) || $_SESSION["username"]==null || $_SESSION["username"]==''){
     header('Location: index.php'); 
   }
+
+
   
   $path =  $_REQUEST["path"];
   $file_content = '';
   
+
+  $isValidPath = true;
+  if (strpos($path, '/..') == true) {
+    $isValidPath = false;
+  } else {
+    foreach(explode('/',$path) as $path_part){
+      if($path_part == 'admin'){
+        $isValidPath = false;
+        break;
+      }
+    }
+  }
+  if(!$isValidPath){
+    header('Location: home.php'); 
+  }
+
   if (!file_exists($path)) {
       echo '<div style="color: red">'.$path . " is not exists.</div>";      
   } else if ($_SERVER['REQUEST_METHOD'] === 'GET') {
@@ -17,6 +34,7 @@
   } else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
      // The request is using the POST method
      $file_content = $_POST['file_content'];
+      file_put_contents($path, $file_content);
      echo '<div style="color: green">'.$path . " updated.</div>";
   } else {
     echo 'Not found '. $_SERVER['REQUEST_METHOD'];
