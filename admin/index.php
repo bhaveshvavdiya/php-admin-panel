@@ -15,7 +15,6 @@
             session_start();
             $_SESSION["username"] = "username";
             header("Location: home.php");
-            exit;
         }else{
           $error_msg = "Invalid username / password";
         }
