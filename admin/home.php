@@ -74,7 +74,13 @@
      }
   }
 ?>
-
+<div>
+  <h3>PHP Admin Panel</h3>
+  <div style="float: right; display: inline-block;">
+    <span><?php echo $_SESSION["username"];?></span>&nbsp;&nbsp;
+    <span><a href="lohout.php"> Logout </a></span>
+  </div>
+</div>
 <form id="createNewFolder" method="post">
 <fieldset>
 <legend>Create New Folder</legend>
@@ -107,12 +113,18 @@
 
 <?php
   $directoryList = scandir($dir);
-  echo '<table>';
-  echo '<tr><th>Folder / File Name</th><th>Action</th></tr>';
+  echo '<table width="100%" bolder="1">';
+  echo '<tr><th>Folder / File Name</th><th>Edit</th><th>Delete</th></tr>';
   foreach($directoryList as $file){
       echo '<tr><td><a href="home.php?path='.$dir.'/'.$file.'">' . $file . '</a></td>';
-      echo '<td><a href="edit.php?path='.$dir.'/'.$file.'">Edit</a> &nbsp;';
-      echo '<a href="delete.php?path='.$dir.'/'.$file.'">Delete</a></td></tr>';
+      echo '<td>';
+      if(!is_dir($dir.'/'.$file)){
+        echo '<a href="edit.php?path='.$dir.'/'.$file.'">Edit</a> </td><td>;'
+        echo '<a href="delete.php?path='.$dir.'/'.$file.'">Delete</a>';
+      } else {
+          echo '<a href="home.php?path='.$dir.'/'.$file.'">View</a></td><td>';        
+      }
+    echo '</td></tr>'';
   }
   echo '</table>';
 ?>
