@@ -75,11 +75,12 @@
   }
 ?>
 <div>
-  <h3>PHP Admin Panel</h3>
-  <div style="float: right; display: inline-block;">
-    <span><?php echo $_SESSION["username"];?></span>&nbsp;&nbsp;
-    <span><a href="lohout.php"> Logout </a></span>
-  </div>
+  <h3>PHP Admin Panel
+    <div style="float: right; display: inline-block;">
+      <span><?php echo $_SESSION["username"];?></span>&nbsp;&nbsp;
+      <span><a href="lohout.php"> Logout </a></span>
+    </div>
+  </h3>
 </div>
 <form id="createNewFolder" method="post">
 <fieldset>
