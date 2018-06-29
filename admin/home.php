@@ -113,16 +113,16 @@
 
 <?php
   $directoryList = scandir($dir);
-  echo '<table width="100%" bolder="1">';
-  echo '<tr><th>Folder / File Name</th><th>Edit</th><th>Delete</th></tr>';
+  echo '<table width="100%" border="1">';
+  echo '<tr><th>Folder / File Name</th><th>Edit / View</th><th>Delete</th></tr>';
   foreach($directoryList as $file){
       echo '<tr><td><a href="home.php?path='.$dir.'/'.$file.'">' . $file . '</a></td>';
-      echo '<td>';
+      echo '<td style="text=align: center;">';
       if(!is_dir($dir.'/'.$file)){
-        echo '<a href="edit.php?path='.$dir.'/'.$file.'">Edit</a> </td><td>';
+        echo '<a href="edit.php?path='.$dir.'/'.$file.'">Edit</a> </td><td style="text=align: center;">';
         echo '<a href="delete.php?path='.$dir.'/'.$file.'">Delete</a>';
       } else {
-          echo '<a href="home.php?path='.$dir.'/'.$file.'">View</a></td><td>';        
+          echo '<a href="home.php?path='.$dir.'/'.$file.'">View</a></td><td style="text=align: center;">';        
       }
     echo '</td></tr>'';
   }
