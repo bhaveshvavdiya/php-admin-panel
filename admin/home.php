@@ -119,7 +119,7 @@
       echo '<tr><td><a href="home.php?path='.$dir.'/'.$file.'">' . $file . '</a></td>';
       echo '<td>';
       if(!is_dir($dir.'/'.$file)){
-        echo '<a href="edit.php?path='.$dir.'/'.$file.'">Edit</a> </td><td>;'
+        echo '<a href="edit.php?path='.$dir.'/'.$file.'">Edit</a> </td><td>';
         echo '<a href="delete.php?path='.$dir.'/'.$file.'">Delete</a>';
       } else {
           echo '<a href="home.php?path='.$dir.'/'.$file.'">View</a></td><td>';        
