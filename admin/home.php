@@ -36,7 +36,7 @@
   if($_POST["Submit"] == "Create Folder"){
     $newFolderPath = $newPath.'/'.$_POST["folderName"];
     if (!file_exists($newFolderPath)) {
-        mkdir($newFolderPath, 0644, true);
+        mkdir($newFolderPath, 0755, true);
         echo '<div style="color: green">Folder '.$newFolderPath.' created</div>';
     }else{
       echo '<div style="color: red">'.$newFolderPath . " is already exists.</div>";
