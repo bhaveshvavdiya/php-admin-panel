@@ -20,7 +20,7 @@ foreach (explode('/', $dir) as $path) {
     }
 }
 
-include "adminheader.php";
+include "header.php";
 
 $newPath   = '';
 $pathArray = explode("/", $dir);
